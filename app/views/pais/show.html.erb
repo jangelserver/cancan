@@ -1,0 +1,25 @@
+<%- model_class = Pai -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
+  <dd><%= @pai.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitud) %>:</strong></dt>
+  <dd><%= @pai.latitud %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitud) %>:</strong></dt>
+  <dd><%= @pai.longitud %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              pais_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_pai_path(@pai), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              pai_path(@pai),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
